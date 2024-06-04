@@ -1,6 +1,7 @@
 <?php
 
 return [
+    'auth_login_redirect_path' => '/admin',
 	'default_crops' => [
         'page_cover' => [
             'default' => [
