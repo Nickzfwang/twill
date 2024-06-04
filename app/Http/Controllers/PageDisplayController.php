@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Repositories\PageRepository;
+use A17\Twill\Facades\TwillAppSettings;
 use Illuminate\Contracts\View\View;
 
 class PageDisplayController extends Controller
@@ -16,5 +17,19 @@ class PageDisplayController extends Controller
         }
 
         return view('site.page', ['item' => $page]);
+    }
+
+    public function home(): View
+    {
+        if (TwillAppSettings::get('homepage.homepage.page')->isNotEmpty()) {
+            /** @var \App\Models\Page $frontPage */
+            $frontPage = TwillAppSettings::get('homepage.homepage.page')->first();
+
+            if ($frontPage->published) {
+                return view('site.page', ['item' => $frontPage]);
+            }
+        }
+
+        abort(404);
     }
 }
