@@ -6,7 +6,7 @@ use A17\Twill\Models\Behaviors\HasTranslation;
 use A17\Twill\Models\Behaviors\HasSlug;
 use A17\Twill\Models\Model;
 
-class Article extends Model 
+class Article extends Model
 {
     use HasTranslation, HasSlug;
 
@@ -15,14 +15,28 @@ class Article extends Model
         'title',
         'description',
     ];
-    
+
     public $translatedAttributes = [
         'title',
         'description',
     ];
-    
+
     public $slugAttributes = [
         'title',
     ];
-    
+
+    public function resolveRouteBinding($slug, $field = null)
+    {
+        $article = app(ArticleRepository::class)->forSlug($slug);
+
+        abort_if(! $article, 404);
+
+        return $article;
+    }
+
+    // #region routekey
+    public function getLocalizedRouteKey($locale)
+    {
+        return $this->getSlug($locale);
+    }
 }

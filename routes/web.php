@@ -22,10 +22,16 @@ Route::group([
     'prefix' => LaravelLocalization::setLocale(),
     'middleware' => ['localize', 'localeSessionRedirect', 'localizationRedirect', 'localeViewPath'],
 ], function () {
-    Route::get('news', function () {
+    Route::get(LaravelLocalization::transRoute('routes.articles'), function () {
         return view('site.articles.index', [
             'articles' => Article::published()->orderBy('created_at', 'desc')->get(),
         ]);
     })->name('articles');
+
+    Route::get(LaravelLocalization::transRoute('routes.article'), function (Article $article) {
+        return view('site.articles.show', [
+            'article' => $article,
+        ]);
+    })->name('article');
 });
 
