@@ -10,7 +10,7 @@ use A17\Twill\Models\Behaviors\HasRevisions;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use A17\Twill\Models\Model;
 
-class Page extends Model 
+class Page extends Model
 {
     use HasBlocks, HasTranslation, HasSlug, HasMedias, HasRevisions, HasFactory;
 
@@ -19,14 +19,30 @@ class Page extends Model
         'title',
         'description',
     ];
-    
+
     public $translatedAttributes = [
         'title',
         'description',
     ];
-    
+
     public $slugAttributes = [
         'title',
     ];
-    
+
+    public $mediasParams = [
+        'cover' => [
+            'default' => [
+                [
+                    'name' => 'default',
+                    'ratio' => 16 / 9,
+                ],
+            ],
+            'mobile' => [
+                [
+                    'name' => 'landscape',
+                    'ratio' => 16 / 9,
+                ],
+            ],
+        ],
+    ];
 }

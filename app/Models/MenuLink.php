@@ -19,10 +19,10 @@ class MenuLink extends Model implements Sortable
         'description',
         'position',
     ];
-    
+
     public $translatedAttributes = [
         'title',
         'description',
     ];
-    
+
 }

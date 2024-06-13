@@ -1,0 +1,1 @@
+This is a basic preview. You can use dd($block) to view the data you have access to. <br />This preview file is located at: /Users/nickwang/Documents/laravel-twill/resources/views/site/blocks/image.blade.php
