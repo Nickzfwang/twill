@@ -5,6 +5,8 @@ namespace App\Models;
 use A17\Twill\Models\Behaviors\HasTranslation;
 use A17\Twill\Models\Behaviors\HasSlug;
 use A17\Twill\Models\Model;
+use App\Repositories\ArticleRepository;
+use Mcamara\LaravelLocalization\Interfaces\LocalizedUrlRoutable;
 
 class Article extends Model
 {
