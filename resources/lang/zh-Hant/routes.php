@@ -1,6 +1,6 @@
 <?php
 
 return [
-    'articles' => 'news',
-    'article' => '新聞/{article}',
+    'articles' => 'articles',
+    'article' => 'articles/{article}',
 ];
