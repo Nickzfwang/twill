@@ -49,6 +49,6 @@ return [
         'permissions-management' => false,
     ],
 
-    'locale' => 'fr',
+    'locale' => 'zh-Hant',
     'fallback_locale' => 'en',
 ];
